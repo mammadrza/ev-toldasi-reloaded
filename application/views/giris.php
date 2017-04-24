@@ -67,7 +67,7 @@
                         <span class="icon-bar"></span>
                     </button>
                       <a class="navbar-brand navbarLogo" href="#">
-                        <img src="<?= base_url('uploads/home.png'); ?>">
+                        <img src="<?= base_url(); ?>uploads/home.png">
                       </a>
                 </div>
                 <div class="navbar-collapse collapse navbarLeft">
@@ -91,9 +91,7 @@
     <div class="col-md-4 ">
       <div class="col-md-12 search">
         <h1 class="searchText">Giriş et</h1>
-
-
-        <form action="<?= base_url("loginController/update")?>" method="post" class="form-group" >
+        <form class="form-group" action="<?= base_url('homeController/butunElan') ?>" method="POST">
 
 
 
@@ -102,9 +100,7 @@
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-envelope"></span>
                </div>
-
-
-               <input class="form-control" id="email" name="user_email" type="email" placeholder="E-poçt ünvanı">
+               <input class="form-control" id="email" name="logemail" type="email" placeholder="E-poçt ünvanı">
             </div>
 
           <!-- <span class="text">Şifrə:</span> -->
@@ -112,7 +108,7 @@
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-lock"></span>
                </div>
-               <input class="form-control" id="password" name="user_pass" type="password" placeholder="Şifrə">
+               <input class="form-control" id="password" name="logpassword" type="password" placeholder="Şifrə">
           </div>
            <!-- <button type="button" class="btn btn-secondary btn1">Yadda saxla</button> -->
             <div class="YaddaSaxla">
@@ -143,7 +139,7 @@
 </section>
 
 
-<!--<script src='js/javascript.js'></script>-->
+<script src='js/javascript.js'></script>
   </body>
 
 </html>
