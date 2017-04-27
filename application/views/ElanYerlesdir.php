@@ -207,8 +207,8 @@
 
           <div class="col-md-12 ElaveetButonu">
             <div class="YaddaSaxla">
-              <button>
-                <a href="">Axtar</a>
+              <button type="submit">
+                Əlavə et
               </button>
             </div>
            <!--  <button class="btn btn-info btn-lg btn-block axtar">

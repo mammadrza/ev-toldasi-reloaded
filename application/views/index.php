@@ -31,7 +31,7 @@
     <div class="row">
       <div class="col-md-8 GirisQeydiyyat">
         <ul>
-          <li class=""><a href="#">Giris</a></li>
+          <li class=""><a href="<?= base_url('loginController') ?>">Giris</a></li>
           <li class=""><a href="#">Qeydiyyat</a></li>
         </ul>
       </div>
