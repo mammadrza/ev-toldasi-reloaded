@@ -31,8 +31,5 @@ class homeController extends CI_Controller{
         $this->load->view('etrafli');
     }
 
-//    public function login(){
-//        $this->load->view('giris');
-//    }
-    
+
 }

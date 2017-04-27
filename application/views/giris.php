@@ -91,7 +91,7 @@
     <div class="col-md-4 ">
       <div class="col-md-12 search">
         <h1 class="searchText">Giriş et</h1>
-        <form class="form-group" action="<?= base_url('homeController/butunElan') ?>" method="POST">
+        <form class="form-group" action="<?= base_url('loginController/checkUser') ?>" method="POST">
 
 
 
@@ -139,7 +139,7 @@
 </section>
 
 
-<script src='js/javascript.js'></script>
+<script src='<?= base_url() ?>public/js/javascript.js'></script>
   </body>
 
 </html>
