@@ -97,11 +97,14 @@
 			<div class="col-md-4 profilImgDiv">
 				<img src="<?= base_url(); ?>uploads/8.jpg" class="profiImg">
 			</div>
+
+
 			<div class="col-md-8">
 				<div class="col-md-12 redakte">
-					<a href="" class="redakteIcon"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-					</a>
-				</div>
+                    <a href="<?= base_url('profilController/edit') ?>" class="redakteIcon"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                </div>
+
+
 				<div class="col-md-12 profilinSahibi ">
 						<!-- <div class="col-md-6 adSoyad"> -->
 						<h2 class="agentName"><p>Həsənzadə Günel</p></h2>

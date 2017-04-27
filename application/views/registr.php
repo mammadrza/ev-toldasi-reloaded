@@ -90,15 +90,23 @@
     <div class="col-md-4"></div>
     <div class="col-md-4 ">
       <div class="col-md-12 search">
-        <h1 class="searchText">Qeydiyyatdan keç</h1>
-        <form class="form-group">
+        <h1 class="searchText">Qeydiyyat</h1>
+        <form class="form-group" action="<?= base_url('registerController/insert')?>" method="POST">
          <!-- <span class="text">Adı:</span> -->
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-user"></span>
                </div>
                <input class="form-control" id="username" name="regUserName" type="text" placeholder="Ad">
+
           </div>
+
+                <?php if(form_error('regUserName')){ ?>
+                    <div style="text-align: center">
+                        <p style="color:red">Adı boş buraxmayın.</p>
+                    </div>
+                <?php   }  ?>
+
 
           <!-- <span class="text">Soyadı:</span> -->
           <div class="input-group araMesafesi">
@@ -107,6 +115,25 @@
                </div>
                <input class="form-control" id="surname" name="regSurname" type="text" placeholder="Soyad">
           </div>
+            <?php if(form_error('regSurname')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Soyadı boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+
+
+            <div class="input-group araMesafesi">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </div>
+
+                <select name="regGender" id="gender" class="form-control">
+                    <option value="Kişi">Kişi</option>
+                    <option value="Qadin">Qadin</option>
+                </select>
+            </div>
+
+
 
           <!-- <span class="text">Şifrə:</span> -->
           <div class="input-group araMesafesi">
@@ -115,13 +142,27 @@
                </div>
                <input class="form-control" id="password" name="regPassword" type="password" placeholder="Şifrə">
           </div>
+            <?php if(form_error('regPassword')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Şifrəni boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+
+
+            <?php if(isset($_SESSION['passwordlong'])){ ?>
+                <div style="text-align: center">
+                    <p style="color:#E57C67"><?= $_SESSION['passwordlong']?></p>
+                </div>
+            <?php unset($_SESSION['passwordlong']); } ?>
+
+
 
           <!-- <span class="text">Mobil nömrə:</span> -->
 
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-earphone " ><span class="black">&nbsp;&nbsp;+</span><span class="helli">994</span> </span>
-               <select id="operator-numbers" name="regOperator-numbers">
+               <select id="operator-numbers" name="regOperatorNumbers">
                                 <option>55</option>
                                 <option>51</option>
                                 <option>50</option>
@@ -129,9 +170,23 @@
                                 <option>77</option>
                           </select>
           </div>
-               <input class="form-control" id="phone_number" name="regPhone_number" type="number" placeholder="Mobil nömrə" maxlength="7">
+               <input class="form-control" id="phone_number" name="regPhoneNumber" type="number" placeholder="Mobil nömrə" maxlength="7">
 
           </div>
+            <?php if(form_error('regPhoneNumber')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Nömrəni boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+
+
+
+            <?php if (isset($_SESSION['invalidphonenumber'])) { ?>
+            <div style="text-align: center">
+                <p style="color:#E57C67"><?= $_SESSION['invalidphonenumber'] ?></p>
+            </div>
+            <?php unset($_SESSION['invalidphonenumber']);  } ?>
+
 
           <!-- <span class="text">E-poçt ünvanı:</span> -->
             <div class="input-group araMesafesi">
@@ -142,6 +197,26 @@
             </div>
 
 
+<!--  form validadiot  EMAIL error start          -->
+            <?php if(form_error('regEmail')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">E-poçt ünvanı boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+<!--  form validadiot EMAIL error end  -->
+
+
+<!--session EMAIL error start  -->
+            <?php if (isset($_SESSION['invalidemail'])) { ?>
+                <div style="text-align: center">
+                    <p style="color:#E57C67"><?= $_SESSION['invalidemail']; ?></p>
+                </div>
+            <?php unset($_SESSION['invalidemail']); } ?>
+<!--session EMAIL error end  -->
+
+
+
+
           <!-- <span class="text">Doğum tarixi:</span> -->
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
@@ -149,10 +224,25 @@
                </div>
                <input class="form-control" id="birthday" name="regBirthday" type="date" placeholder="Doğum tarixi">
             </div>
+            <?php if(form_error('regBirthday')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Doğum tarixi boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+
+
+
+            <?php if (isset($_SESSION['invalidbdate'])) { ?>
+                <div style="text-align: center">
+                    <p style="color:#E57C67"><?= $_SESSION['invalidbdate']; ?></p>
+                </div>
+
+            <?php unset($_SESSION['invalidbdate']); } ?>
+
           <!-- <button type="button" class="btn btn-secondary btn1">Yadda saxla</button> -->
             <div class="YaddaSaxla">
-              <button>
-                <a href="">Yadda saxla</a>
+              <button type="submit">
+                Yadda saxla
               </button>
             </div>
 

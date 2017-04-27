@@ -23,16 +23,16 @@ class homeController extends CI_Controller{
         $this->load->view('profil');
     }
 
-    public function registr(){
-        $this->load->view('registr');
-    }
+//    public function registr(){
+//        $this->load->view('registr');
+//    }
 
     public function etrafli(){
         $this->load->view('etrafli');
     }
 
-    public function login(){
-        $this->load->view('giris');
-    }
-
+//    public function login(){
+//        $this->load->view('giris');
+//    }
+    
 }
