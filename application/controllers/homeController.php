@@ -19,13 +19,15 @@ class homeController extends CI_Controller{
         $this->load->view('ElanYerlesdir');
     }
 
+
     public function profil(){
         $this->load->view('profil');
     }
-    
+  
+
+
     public function etrafli(){
         $this->load->view('etrafli');
     }
-
 
 }

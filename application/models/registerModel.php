@@ -20,11 +20,6 @@ class RegisterModel extends CI_Model{
 
     }
 
-//        public function checkEmail1($email)
-//        {
-//            $this->db->select('user_email');$this->db->from('usersdb');$this->db->where('user_email', $email);$checkemail = $this->db->get();
-//            return $checkemail->result();
-//        }
 
 
 

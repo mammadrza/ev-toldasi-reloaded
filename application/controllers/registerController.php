@@ -51,14 +51,37 @@ class RegisterController extends CI_Controller{
                 'label' => 'Gender',
                 'rules' => 'required',
                 'errors' => 'require '
+            ),
+            array(
+                'field' => 'regCity',
+                'label' => 'City',
+                'rules' => 'required',
+                'errors' => 'require '
             )
+//            array(
+//                'field' => 'regUniversity',
+//                'label' => 'University',
+//                'rules' => 'required',
+//                'errors' => 'require '
+//            )
         );
         $this->form_validation->set_rules($config);
     }
 
     public function index(){
-        $this->load->view('registr');
+        $weherler = $this->db->get('city')->result();          //city table-den secir
+        $univerler = $this->db->get('university')->result();   //university table-den secir
+
+        $data = array(
+            "weherler"  => $weherler,
+            "univerler" => $univerler
+
+            );
+        $this->load->view('registr',$data);
     }
+
+
+
 
     public function insert(){
 
@@ -71,6 +94,10 @@ class RegisterController extends CI_Controller{
         $email               = $this->input->post('regEmail');
         $bdate               = $this->input->post('regBirthday');
         $gender              = $this->input->post('regGender');
+        $city                = $this->input->post('regCity');
+//        $university          = $this->input->post('regUniversity');
+//        print_r($university);
+//            print_r($city);
 
         if(strlen($password) >= 6){
 
@@ -80,21 +107,28 @@ class RegisterController extends CI_Controller{
 
                               if (!$this->registerModel->checkEmail($email)) {
 
-                                          $data = array(
-                                              'user_name'    => $name,
+                                          $data['user'] = array(
+                                              'user_name'    => $name,      //'user_name' db-deki columlarin adlaridir.
                                               'user_surname' => $surname,
                                               'user_pass'    => md5($password),
                                               'user_phone'   => $regoperator_numbers,
                                               'user_email'   => $email,
                                               'user_bdate'   => $bdate,
-                                              'user_gender'  => $gender //qowulmayib
+                                              'user_gender'  => $gender, //qowulmayib
+                                              'user_adress'  => $city, //qowulmayib
+//                                       'user_university_id'  => $university //qowulmayib
+
                                           );
+
+
+
 
                                           $this->registerModel->insert($data);
                                           redirect(base_url('loginController'));
 
                                 }else{
                                 $_SESSION['invalidemail'] = "Email artiq istifade edilir";
+
                                     redirect(base_url('registerController'));
                                 }
 
@@ -112,7 +146,7 @@ class RegisterController extends CI_Controller{
 
         }
         else {
-            $this->load->view('registr');
+            redirect(base_url('registerController'));
         }
 
 

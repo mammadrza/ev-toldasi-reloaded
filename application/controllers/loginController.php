@@ -8,6 +8,7 @@ class loginController extends CI_Controller{
         parent::__construct();
 
         $this->load->model('loginModel');
+        $this->load->model('profileModel');
     }
 
     public function index(){
@@ -24,9 +25,20 @@ class loginController extends CI_Controller{
 
             if ($this->loginModel->login($userEmail, $userPassword)) {
 
+
                 
 
                 $_SESSION['login'] = TRUE;
+          
+            // profileController start
+                $user = $this->profileModel->user($userEmail);
+
+
+                foreach ($user as $model)
+                    $_SESSION['user'] = $model;
+
+            // profileController end
+
                 redirect(base_url('profileController'));
 
 

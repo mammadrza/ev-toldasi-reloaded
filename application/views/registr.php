@@ -1,3 +1,7 @@
+
+<?php //var_dump($data);
+//die();?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -132,6 +136,51 @@
                     <option value="Qadin">Qadin</option>
                 </select>
             </div>
+
+
+
+
+            <div class="input-group araMesafesi">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                </div>
+
+                <select name="regCity" id="city" class="form-control">
+
+
+                <?php foreach ($weherler as $key => $value){ ?>
+                    <option><?= $value->city_name ?></option>
+                <?php } ?>
+
+
+                    <?php if($city){ ?>
+                    <option><?= $city->city_name ?></option>
+                  <?php  } ?>
+
+                </select>
+            </div>
+
+
+
+
+
+            <div class="input-group araMesafesi">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-education"></span>
+                </div>
+
+                <select name="regUniversity" id="university" class="form-control">
+
+
+                    <?php foreach ($univerler as $key => $value){ ?>
+                        <option><?= $value->university_name ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+
+
+
+
 
 
 
