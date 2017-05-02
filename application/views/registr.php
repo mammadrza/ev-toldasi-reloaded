@@ -109,7 +109,8 @@
                     <div style="text-align: center">
                         <p style="color:red">Adı boş buraxmayın.</p>
                     </div>
-                <?php   }  ?>
+                <?php   }   ?>
+
 
 
           <!-- <span class="text">Soyadı:</span> -->
@@ -148,14 +149,14 @@
                 <select name="regCity" id="city" class="form-control">
 
 
-                <?php foreach ($weherler as $key => $value){ ?>
+                <?php foreach ($city as $key => $value){ ?>
                     <option><?= $value->city_name ?></option>
                 <?php } ?>
 
 
-                    <?php if($city){ ?>
-                    <option><?= $city->city_name ?></option>
-                  <?php  } ?>
+<!--                    --><?php //if($city){ ?>
+<!--                    <option>--><?//= $city->city_name ?><!--</option>-->
+<!--                  --><?php // } ?>
 
                 </select>
             </div>

@@ -97,6 +97,19 @@
                </div>
                <input class="form-control" id="username" name="userName" type="text" value="<?= $user_data->user_name ?>">
           </div>
+
+            <?php if(form_error('userName')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Adı boş buraxmayın.</p>
+                </div>
+            <?php   } ?>
+
+
+
+
+
+
+
           <!-- <span class="text">Soyadı:</span> -->
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
@@ -105,7 +118,11 @@
                <input class="form-control" id="surname" name="surname" type="text" value="<?= $user_data->user_surname ?>">
           </div>
 
-
+            <?php if(form_error('surname')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Soyadı boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
 
 
 
@@ -118,9 +135,31 @@
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-home"></span>
                </div>
-               <input class="form-control" id="unvan" name="adress" type="text" value="<?= $user_data->user_adress ?>">
+<!--               <input class="form-control" id="unvan" name="adress" type="text" value="--><?//= $user_data->user_adress ?><!--">-->
+
+              <select name="city" id="city" class="form-control">
+
+
+                  <?php
+
+//                  print_r($city);
+                  foreach ($city as $key => $value){ ?>
+                      <option <?= ($user_data->user_adress == $value->city_name) ? 'selected':''; ?>> <?= $value->city_name ?></option>
+                  <?php } ?>
+
+
+
+
+              </select>
+
+
           </div>
 
+            <?php if(form_error('adress')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Ünvanı boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
 
 
 
@@ -180,6 +219,15 @@
 
           </div>
 
+            <?php if(form_error('phone')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Telefon nömrəsini boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+
+
+
+
           <!-- <span class="text">E-poçt ünvanı:</span> -->
             <div class="input-group araMesafesi">
                <div class="input-group-addon">
@@ -187,6 +235,13 @@
                </div>
                <input class="form-control" id="email" name="email" type="email" value="<?= $user_data->user_email ?>">
             </div>
+            <?php if(form_error('email')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Emaili boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+
+
 
 
           <!-- <span class="text">Doğum tarixi:</span> -->
@@ -196,6 +251,13 @@
                </div>
                <input class="form-control" id="birthday" name="birthday" type="date" value="<?= $user_data->user_bdate ?>">
             </div>
+            <?php if(form_error('birthday')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Doğum tarixini boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+
+
           <!-- <button type="button" class="btn btn-secondary btn1">Yadda saxla</button> -->
             <div class="YaddaSaxla">
               <button>
