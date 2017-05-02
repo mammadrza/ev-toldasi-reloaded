@@ -47,7 +47,7 @@ class updateProfileController extends CI_Controller{
 
         );
 //        $this->load->model('updateProfileModel');
-
+//sd
         $update = $this->updateProfileModel->updateQuery($data, $id);
 
 
