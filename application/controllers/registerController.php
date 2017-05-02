@@ -69,11 +69,11 @@ class RegisterController extends CI_Controller{
     }
 
     public function index(){
-        $weherler = $this->db->get('city')->result();          //city table-den secir
+        $city = $this->db->get('city')->result();          //city table-den secir
         $univerler = $this->db->get('university')->result();   //university table-den secir
 
         $data = array(
-            "weherler"  => $weherler,
+            "city"  => $city,
             "univerler" => $univerler
 
             );
@@ -128,8 +128,7 @@ class RegisterController extends CI_Controller{
 
                                 }else{
                                 $_SESSION['invalidemail'] = "Email artiq istifade edilir";
-
-                                    redirect(base_url('registerController'));
+                                redirect(base_url('registerController'));
                                 }
 
                 }else{
@@ -141,16 +140,17 @@ class RegisterController extends CI_Controller{
                 redirect(base_url('registerController'));}
 
         }else{
-            $_SESSION['passwordlong'] = "Şifrə 6-dan kiçik ola bilməz.";
+            $_SESSION['passwordlong'] = "Şifrə 6 simvoldan kiçik ola bilməz.";
             redirect(base_url('registerController'));}
 
         }
         else {
-            $weherler = $this->db->get('city')->result();          //city table-den secir
+
+            $city = $this->db->get('city')->result();          //city table-den secir
             $univerler = $this->db->get('university')->result();   //university table-den secir
 
             $data = array(
-                "weherler"  => $weherler,
+                "city"  => $city,
                 "univerler" => $univerler
 
             );

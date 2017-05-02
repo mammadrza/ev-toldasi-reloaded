@@ -48,21 +48,12 @@ $user = $_SESSION['user'];
     <div class="row">
       <div class="col-md-8 GirisQeydiyyat">
 
-      <?php 
+      <?php if (isset($_SESSION['login'])) { ?>
+      		<ul><li class=""><a href="<?= base_url('loginController/logout') ?>">Çıxış</a></li></ul>
+      <?php  } ?>
 
-      if (isset($_SESSION['login'])) { ?>
-      	
-      		<ul>
-          
-                        <li class=""><a href="<?= base_url('loginController/logout') ?>">Çıxış</a></li>
-        </ul>
 
-    <?php  }else{ ?>
-    	 
 
-  <?php  }
-
-       ?>
 
        
 
