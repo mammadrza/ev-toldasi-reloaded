@@ -1,3 +1,12 @@
+<?php 
+
+if (isset($_SESSION['login']) == FALSE) {
+    redirect(base_url('loginController'));
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +39,25 @@
   <div class="container-fluid loginRegister">
     <div class="row">
       <div class="col-md-8 GirisQeydiyyat">
-        <ul>
-          <li class=""><a href="#">Giriş</a></li>
-          <li class=""><a href="#">Qeydiyyat</a></li>
+
+      <?php 
+
+      if (isset($_SESSION['login'])) { ?>
+      	
+      		<ul>
+          
+                        <li class=""><a href="<?= base_url('loginController/logout') ?>">Çıxış</a></li>
         </ul>
+
+    <?php  }else{ ?>
+    	 
+
+  <?php  }
+
+       ?>
+
+       
+
       </div>
       <div class="col-md-4 social">
         <ul>
@@ -75,6 +99,7 @@
                         <li class=""><a href="#">Ana səhifə</a></li>
                         <li class=""><a href="#">Haqqımızda</a></li>
                         <li class=""><a href="#">Əlaqə</a></li>
+
                     </ul>
                 </div>
 

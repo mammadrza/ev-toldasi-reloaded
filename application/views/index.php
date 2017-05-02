@@ -32,7 +32,7 @@
       <div class="col-md-8 GirisQeydiyyat">
         <ul>
           <li class=""><a href="<?= base_url('loginController') ?>">Giris</a></li>
-          <li class=""><a href="#">Qeydiyyat</a></li>
+          <li class=""><a href="<?= base_url('registerController') ?>">Qeydiyyat</a></li>
         </ul>
       </div>
       <div class="col-md-4 social">
