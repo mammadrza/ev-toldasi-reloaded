@@ -107,7 +107,7 @@ class RegisterController extends CI_Controller{
 
                               if (!$this->registerModel->checkEmail($email)) {
 
-                                          $data['user'] = array(
+                                          $data = array(
                                               'user_name'    => $name,      //'user_name' db-deki columlarin adlaridir.
                                               'user_surname' => $surname,
                                               'user_pass'    => md5($password),
@@ -146,7 +146,15 @@ class RegisterController extends CI_Controller{
 
         }
         else {
-            redirect(base_url('registerController'));
+            $weherler = $this->db->get('city')->result();          //city table-den secir
+            $univerler = $this->db->get('university')->result();   //university table-den secir
+
+            $data = array(
+                "weherler"  => $weherler,
+                "univerler" => $univerler
+
+            );
+            $this->load->view('registr',$data);
         }
 
 

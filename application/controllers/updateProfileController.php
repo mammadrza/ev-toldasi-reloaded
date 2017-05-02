@@ -10,6 +10,15 @@ class updateProfileController extends CI_Controller{
 
     public function get($id){
 
+        $weherler = $this->db->get('city')->result();          //city table-den secir
+        $univerler = $this->db->get('university')->result();   //university table-den secir
+
+        $data = array(
+            "weherler"  => $weherler,
+            "univerler" => $univerler
+
+        );
+
         $data['user_data'] = $this->updateProfileModel->getData($id);
         $this->load->view('editProf',$data);
 
@@ -28,7 +37,7 @@ class updateProfileController extends CI_Controller{
     public function update($id){
         $name     = $this->input->post('userName');
         $surname  = $this->input->post('surname');
-        $adress   = $this->input->post('adress');
+        $city   = $this->input->post('city');
         $univer   = $this->input->post('univer');
         $phone    = $this->input->post('phone');
         $email    = $this->input->post('email');
@@ -39,7 +48,7 @@ class updateProfileController extends CI_Controller{
 
             'user_name'    => $name,      //'user_name' db-deki columlarin adlaridir.
             'user_surname' => $surname,
-            'user_adress'  => $adress, //qowulmayib
+            'user_adress'  => $city, //qowulmayib
             'user_phone'   => $phone,
             'user_email'   => $email,
             'user_bdate'   => $birthday,

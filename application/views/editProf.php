@@ -114,32 +114,22 @@
 
 <!--           <span class="text">Unvan</span>-->
 
-          <div class="input-group araMesafesi">
-               <div class="input-group-addon">
-               <span class="glyphicon glyphicon-home"></span>
-               </div>
-               <input class="form-control" id="unvan" name="adress" type="text" value="<?= $user_data->user_adress ?>">
-          </div>
+            <div class="input-group araMesafesi">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                </div>
+
+                <select name="city" id="city" class="form-control">
 
 
+                    <?php foreach ($weherler as $key => $value){ ?>
+                        <option <?= ($user_data->user_adress == $value->city_name) ? 'selected': ''; ?>><?= $value->city_name ?></option>
+                    <?php } ?>
 
 
-<!--dsdsdsdsdsdsdsd-->
-<!--            <div class="input-group araMesafesi">-->
-<!--                <div class="input-group-addon">-->
-<!--                    <span class="glyphicon glyphicon-map-marker"></span>-->
-<!--                </div>-->
-<!---->
-<!--                <select name="adress" id="unvan" class="form-control">-->
-<!---->
-<!---->
-<!--                    --><?php //foreach ($user as $key => $value){ ?>
-<!--                        <option>--><?//= $value['adress'] ?><!--</option>-->
-<!--                    --><?php //} ?>
-<!--                </select>-->
-<!--            </div>-->
+                </select>
+            </div>
 
-<!--hasasashashasass/-->
 
 
 
