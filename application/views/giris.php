@@ -103,6 +103,12 @@
                <input class="form-control" id="email" name="logemail" type="email" placeholder="E-poçt ünvanı">
             </div>
 
+            <?php if(form_error('logemail')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">E-maili boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+
           <!-- <span class="text">Şifrə:</span> -->
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
@@ -110,6 +116,12 @@
                </div>
                <input class="form-control" id="password" name="logpassword" type="password" placeholder="Şifrə">
           </div>
+
+            <?php if(form_error('logpassword')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Şifrəni boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
            <!-- <button type="button" class="btn btn-secondary btn1">Yadda saxla</button> -->
             <div class="YaddaSaxla">
               <button type="submit">

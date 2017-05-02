@@ -9,6 +9,24 @@ class loginController extends CI_Controller{
 
         $this->load->model('loginModel');
         $this->load->model('profileModel');
+
+        $this->load->library('form_validation');
+
+        $config = array(
+            array(
+                'field' => 'logemail',
+                'label' => 'Username',
+                'rules' => 'required',
+                'errors' => 'require '
+            ),
+            array(
+                'field' => 'logpassword',
+                'label' => 'Surname',
+                'rules' => 'required',
+                'errors' => 'require '
+            )
+        );
+        $this->form_validation->set_rules($config);
     }
 
     public function index(){
@@ -17,27 +35,26 @@ class loginController extends CI_Controller{
 
     public function checkUser(){
 
-        $userEmail = $this->input->post('logemail');
-        $userPassword = md5($this->input->post('logpassword'));
+        if ($this->form_validation->run() != FALSE) {
+
+            $userEmail = $this->input->post('logemail');
+            $userPassword = md5($this->input->post('logpassword'));
 
 
-        $this->loginModel->login($userEmail,$userPassword);
+            $this->loginModel->login($userEmail, $userPassword);
 
             if ($this->loginModel->login($userEmail, $userPassword)) {
 
-
-                
-
                 $_SESSION['login'] = TRUE;
-          
-            // profileController start
+
+                // profileController start
                 $user = $this->profileModel->user($userEmail);
 
 
                 foreach ($user as $model)
                     $_SESSION['user'] = $model;
 
-            // profileController end
+                // profileController end
 
                 redirect(base_url('profileController'));
 
@@ -45,6 +62,10 @@ class loginController extends CI_Controller{
             } else {
                 redirect(base_url('loginController'));
             }
+        }
+        else{
+            $this->load->view('giris');
+        }
 
 
     }

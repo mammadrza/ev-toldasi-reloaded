@@ -2,6 +2,7 @@
 
 class updateProfileModel extends CI_Model{
 
+
 //editProf sehifesine gelecek datalar    start
 
         public function getData($id){  //$id = $this->uri->segment(3) --------->$id tapmagin 2ci yolu. functionun alt setiri
