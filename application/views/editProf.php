@@ -194,9 +194,7 @@
           <!-- <span class="text">tehsil</span> -->
 
           <div class="input-group araMesafesi">
-               <div class="input-group-addon">
-               <span class="glyphicon glyphicon-education"></span>
-          </div>
+               <div class="input-group-addon"><span class="glyphicon glyphicon-education"></span></div>
                <input class="form-control" id="univer" name="univer" type="univer" value="uni">
 
           </div>
@@ -204,8 +202,8 @@
           <!-- <span class="text">Mobil nömrə:</span> -->
 
           <div class="input-group araMesafesi">
-               <div class="input-group-addon">
-               <span class="glyphicon glyphicon-earphone " ><span class="black">
+               <div class="input-group-addon"><span class="glyphicon glyphicon-earphone " ><span class="black">
+
 <!--                       &nbsp;&nbsp;+</span><span class="helli">994</span> </span>-->
 <!--               <select id="operator-numbers" name="operatorNumbers">-->
 <!--                                <option>55</option>-->
@@ -214,7 +212,7 @@
 <!--                                <option>70</option>-->
 <!--                                <option>77</option>-->
 <!--                          </select>-->
-          </div>
+               </div>
                <input class="form-control" id="phone_number" name="phone" type="" value="<?= $user_data->user_phone ?>" maxlength="13">
 
           </div>
