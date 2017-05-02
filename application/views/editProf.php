@@ -147,7 +147,7 @@
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-education"></span>
-          </div>
+                </div>
                <input class="form-control" id="univer" name="univer" type="univer" value="uni">
 
           </div>
