@@ -97,6 +97,19 @@
                </div>
                <input class="form-control" id="username" name="userName" type="text" value="<?= $user_data->user_name ?>">
           </div>
+
+            <?php if(form_error('userName')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Adı boş buraxmayın.</p>
+                </div>
+            <?php   } ?>
+
+
+
+
+
+
+
           <!-- <span class="text">Soyadı:</span> -->
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
@@ -105,7 +118,11 @@
                <input class="form-control" id="surname" name="surname" type="text" value="<?= $user_data->user_surname ?>">
           </div>
 
-
+            <?php if(form_error('surname')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Soyadı boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
 
 
 
@@ -114,22 +131,54 @@
 
 <!--           <span class="text">Unvan</span>-->
 
-            <div class="input-group araMesafesi">
-                <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-map-marker"></span>
+          <div class="input-group araMesafesi">
+               <div class="input-group-addon">
+               <span class="glyphicon glyphicon-home"></span>
+               </div>
+<!--               <input class="form-control" id="unvan" name="adress" type="text" value="--><?//= $user_data->user_adress ?><!--">-->
+
+              <select name="city" id="city" class="form-control">
+
+
+                  <?php
+
+//                  print_r($city);
+                  foreach ($city as $key => $value){ ?>
+                      <option <?= ($user_data->user_adress == $value->city_name) ? 'selected':''; ?>> <?= $value->city_name ?></option>
+                  <?php } ?>
+
+
+
+
+              </select>
+
+
+          </div>
+
+            <?php if(form_error('adress')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Ünvanı boş buraxmayın.</p>
                 </div>
-
-                <select name="city" id="city" class="form-control">
-
-
-                    <?php foreach ($weherler as $key => $value){ ?>
-                        <option <?= ($user_data->user_adress == $value->city_name) ? 'selected': ''; ?>><?= $value->city_name ?></option>
-                    <?php } ?>
+            <?php   }  ?>
 
 
-                </select>
-            </div>
 
+<!--dsdsdsdsdsdsdsd-->
+<!--            <div class="input-group araMesafesi">-->
+<!--                <div class="input-group-addon">-->
+<!--                    <span class="glyphicon glyphicon-map-marker"></span>-->
+<!--                </div>-->
+<!---->
+<!--                <select name="adress" id="unvan" class="form-control">-->
+<!---->
+<!---->
+<!--                    --><?php //foreach ($user as $key => $value){ ?>
+<!--                        <option>--><?//= $value['adress'] ?><!--</option>-->
+<!--                    --><?php //} ?>
+<!--                </select>-->
+<!--            </div>-->
+
+<!--hasasashashasass/-->
 
 
 
@@ -145,9 +194,7 @@
           <!-- <span class="text">tehsil</span> -->
 
           <div class="input-group araMesafesi">
-               <div class="input-group-addon">
-               <span class="glyphicon glyphicon-education"></span>
-          </div>
+               <div class="input-group-addon"><span class="glyphicon glyphicon-education"></span></div>
                <input class="form-control" id="univer" name="univer" type="univer" value="uni">
 
           </div>
@@ -155,8 +202,8 @@
           <!-- <span class="text">Mobil nömrə:</span> -->
 
           <div class="input-group araMesafesi">
-               <div class="input-group-addon">
-               <span class="glyphicon glyphicon-earphone " ><span class="black">
+               <div class="input-group-addon"><span class="glyphicon glyphicon-earphone " ><span class="black">
+
 <!--                       &nbsp;&nbsp;+</span><span class="helli">994</span> </span>-->
 <!--               <select id="operator-numbers" name="operatorNumbers">-->
 <!--                                <option>55</option>-->
@@ -165,10 +212,19 @@
 <!--                                <option>70</option>-->
 <!--                                <option>77</option>-->
 <!--                          </select>-->
-          </div>
+               </div>
                <input class="form-control" id="phone_number" name="phone" type="" value="<?= $user_data->user_phone ?>" maxlength="13">
 
           </div>
+
+            <?php if(form_error('phone')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Telefon nömrəsini boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+
+
+
 
           <!-- <span class="text">E-poçt ünvanı:</span> -->
             <div class="input-group araMesafesi">
@@ -177,6 +233,13 @@
                </div>
                <input class="form-control" id="email" name="email" type="email" value="<?= $user_data->user_email ?>">
             </div>
+            <?php if(form_error('email')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Emaili boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+
+
 
 
           <!-- <span class="text">Doğum tarixi:</span> -->
@@ -186,6 +249,13 @@
                </div>
                <input class="form-control" id="birthday" name="birthday" type="date" value="<?= $user_data->user_bdate ?>">
             </div>
+            <?php if(form_error('birthday')){ ?>
+                <div style="text-align: center">
+                    <p style="color:red">Doğum tarixini boş buraxmayın.</p>
+                </div>
+            <?php   }  ?>
+
+
           <!-- <button type="button" class="btn btn-secondary btn1">Yadda saxla</button> -->
             <div class="YaddaSaxla">
               <button>
