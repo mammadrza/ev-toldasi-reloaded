@@ -141,9 +141,16 @@
           </div>
 
 <!-- otaqsayi -->
-          <div class="col-md-12 form-group">
-              <label class="sel3" for="inputdefault">Otaq sayı:</label>
-              <input class="form-control" id="inputdefault" type="number" placeholder="Otaq sayı">        
+           <div class="col-md-12 form-group">
+            <label class="sel2" for="sel2">Otaq sayi:</label>
+            <select class="form-control" id="sel1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6+</option>
+            </select>
           </div>
 
           <!-- unvan -->
