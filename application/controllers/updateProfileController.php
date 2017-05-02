@@ -64,6 +64,7 @@ class updateProfileController extends CI_Controller{
 
     public function get($id){
 
+
         $city = $this->db->get('city')->result();
         $univerler = $this->db->get('university')->result();
 
@@ -86,6 +87,7 @@ class updateProfileController extends CI_Controller{
 
 
 //---------------------------------------------------------------
+
 
     public function update($id)
     {

@@ -145,6 +145,7 @@ class RegisterController extends CI_Controller{
 
         }
         else {
+
             $city = $this->db->get('city')->result();          //city table-den secir
             $univerler = $this->db->get('university')->result();   //university table-den secir
 
