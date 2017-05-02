@@ -1,3 +1,13 @@
+
+<?php
+
+$user = $_SESSION['user'];
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,13 +111,13 @@
 
 			<div class="col-md-8">
 				<div class="col-md-12 redakte">
-                    <a href="<?= base_url('profilController/edit') ?>" class="redakteIcon"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="<?= base_url('updateProfileController/get'.'/'.$user->id)?>" class="redakteIcon"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 </div>
-
+<!--                //base_url('updateProfileController/update'.'/'.$user->id)//-->
 
 				<div class="col-md-12 profilinSahibi ">
 						<!-- <div class="col-md-6 adSoyad"> -->
-						<h2 class="agentName"><p>Həsənzadə Günel</p></h2>
+						<h2 class="agentName"><p><?= $user->user_name.' '.$user->user_surname  ?></p></h2>
 						<!-- </div> -->
 						<!-- <div class="col-md-6 redakte" >
 							<a href="" class="redakteIcon"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -116,14 +126,14 @@
 				</div>
 				<div class="col-md-12 adGunu">
 					<h4 class="agentDogumTarixi">Doğum tarixi:</h4>
-					<h4 class="agentBD">01.01.2001</h4>
+					<h4 class="agentBD"><?= $user->user_bdate ?></h4>
 				</div>
 
 				<div class="col-md-12 unvan">
 
 					<h4 class="agentUnvan">Ünvan:</h4>
 
-					<p class="agentAdress">Bakı flan flan flan flan flan flan flan flan flan flan flan flan flan flan flan flan flan </p>
+					<p class="agentAdress"><?= $user->user_adress ?></p>
 				</div>
 				<div class="col-md-12 agentTehsil" >
 					<h4 class="tehsil">Təhsil:</h4>
@@ -132,11 +142,11 @@
 
 				<div class="col-md-12 AgentContact">
 					<div class="agentNumber">
-							<a href="" class="number"><i class="fa fa-phone" aria-hidden="true" ></i>(123) 123-456</a>
+							<a href="" class="number"><i class="fa fa-phone" aria-hidden="true" ></i><?= $user->user_phone ?></a>
 
 					</div>
 					<div class="agentMail">
-						<a href="" class="mail"><i class="fa fa-envelope-o" aria-hidden="true" ></i>jennie@example.com</a>
+						<a href="" class="mail"><i class="fa fa-envelope-o" aria-hidden="true" ></i><?= $user->user_email ?></a>
 					</div>
 				</div>
 

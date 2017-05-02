@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -89,30 +89,68 @@
         <h1 class="searchText">Redaktə et</h1>
 
 
-        <form class="form-group">
+        <form class="form-group" method="POST" action="<?= base_url('updateProfileController/update'.'/'.$user_data->id)  ?>">
          <!-- <span class="text">Adı:</span> -->
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-user"></span>
                </div>
-               <input class="form-control" id="username" name="username" type="text" placeholder="Ad">
+               <input class="form-control" id="username" name="userName" type="text" value="<?= $user_data->user_name ?>">
           </div>
           <!-- <span class="text">Soyadı:</span> -->
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-user"></span>
                </div>
-               <input class="form-control" id="surname" name="surname" type="text" placeholder="Soyad">
+               <input class="form-control" id="surname" name="surname" type="text" value="<?= $user_data->user_surname ?>">
           </div>
 
-          <!-- <span class="text">Unvan</span> -->
+
+
+
+
+
+
+
+<!--           <span class="text">Unvan</span>-->
 
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-home"></span>
                </div>
-               <input class="form-control" id="unvan" name="unvan" type="text" placeholder="Ünvan">
+               <input class="form-control" id="unvan" name="adress" type="text" value="<?= $user_data->user_adress ?>">
           </div>
+
+
+
+
+<!--dsdsdsdsdsdsdsd-->
+<!--            <div class="input-group araMesafesi">-->
+<!--                <div class="input-group-addon">-->
+<!--                    <span class="glyphicon glyphicon-map-marker"></span>-->
+<!--                </div>-->
+<!---->
+<!--                <select name="adress" id="unvan" class="form-control">-->
+<!---->
+<!---->
+<!--                    --><?php //foreach ($user as $key => $value){ ?>
+<!--                        <option>--><?//= $value['adress'] ?><!--</option>-->
+<!--                    --><?php //} ?>
+<!--                </select>-->
+<!--            </div>-->
+
+<!--hasasashashasass/-->
+
+
+
+
+
+
+
+
+
+
+
 
           <!-- <span class="text">tehsil</span> -->
 
@@ -120,7 +158,7 @@
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-education"></span>
           </div>
-               <input class="form-control" id="univer" name="univer" type="univer" placeholder="Təhsil">
+               <input class="form-control" id="univer" name="univer" type="univer" value="uni">
 
           </div>
 
@@ -128,16 +166,17 @@
 
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
-               <span class="glyphicon glyphicon-earphone " ><span class="black">&nbsp;&nbsp;+</span><span class="helli">994</span> </span>
-               <select id="operator-numbers" name="operator-numbers">
-                                <option>55</option>
-                                <option>51</option>
-                                <option>50</option>
-                                <option>70</option>
-                                <option>77</option>
-                          </select>
+               <span class="glyphicon glyphicon-earphone " ><span class="black">
+<!--                       &nbsp;&nbsp;+</span><span class="helli">994</span> </span>-->
+<!--               <select id="operator-numbers" name="operatorNumbers">-->
+<!--                                <option>55</option>-->
+<!--                                <option>51</option>-->
+<!--                                <option>50</option>-->
+<!--                                <option>70</option>-->
+<!--                                <option>77</option>-->
+<!--                          </select>-->
           </div>
-               <input class="form-control" id="phone_number" name="phone_number" type="number" placeholder="Mobil nömrə" maxlength="7">
+               <input class="form-control" id="phone_number" name="phone" type="" value="<?= $user_data->user_phone ?>" maxlength="13">
 
           </div>
 
@@ -146,7 +185,7 @@
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-envelope"></span>
                </div>
-               <input class="form-control" id="email" name="email" type="email" placeholder="E-poçt ünvanı">
+               <input class="form-control" id="email" name="email" type="email" value="<?= $user_data->user_email ?>">
             </div>
 
 
@@ -155,12 +194,12 @@
                <div class="input-group-addon">
                <span class="glyphicon glyphicon-lock"></span>
                </div>
-               <input class="form-control" id="birthday" name="birthday" type="date" placeholder="Doğum tarixi">
+               <input class="form-control" id="birthday" name="birthday" type="date" value="<?= $user_data->user_bdate ?>">
             </div>
           <!-- <button type="button" class="btn btn-secondary btn1">Yadda saxla</button> -->
             <div class="YaddaSaxla">
               <button>
-                <a href="">Yadda saxla</a>
+                Yadda saxla
               </button>
             </div>
 
