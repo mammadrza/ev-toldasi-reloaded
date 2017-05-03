@@ -6,10 +6,7 @@ if (isset($_SESSION['login']) == FALSE) {
 }
 
 
-
-
 $user = $_SESSION['user'];
-
 
 ?>
 

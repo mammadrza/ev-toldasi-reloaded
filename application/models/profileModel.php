@@ -21,15 +21,9 @@ class profileModel extends CI_Model{
 
     public function user($userEmail){
        $select = $this->db->where('user_email', $userEmail)->get('usersdb')->result();
+
        return $select;
     }
-
-
-
-
-
-
-
 
 
 

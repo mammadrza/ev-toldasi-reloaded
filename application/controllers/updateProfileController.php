@@ -33,12 +33,12 @@ class updateProfileController extends CI_Controller{
                 'rules' => 'required',
                 'errors' => 'require '
             ),
-           array(
-                'field' => 'email',
-                'label' => 'Email',
-                'rules' => 'required',
-                'errors' => 'require '
-            ),
+//           array(
+//                'field' => 'email',
+//                'label' => 'Email',
+//                'rules' => 'required',
+//                'errors' => 'require '
+//            ),
            array(
                 'field' => 'birthday',
                 'label' => 'Birthday Date',
@@ -98,7 +98,7 @@ class updateProfileController extends CI_Controller{
             $city = $this->input->post('city');
             $univer = $this->input->post('univer');
             $phone = $this->input->post('phone');
-            $email = $this->input->post('email');
+//            $email = $this->input->post('email');
             $birthday = $this->input->post('birthday');
 //var_dump($_SESSION['user']);
 //die();
@@ -108,7 +108,7 @@ class updateProfileController extends CI_Controller{
                 'user_surname' => $surname,
                 'user_adress' => $city, //qowulmayib
                 'user_phone' => $phone,
-                'user_email' => $email,
+//                'user_email' => $email,
                 'user_bdate' => $birthday,
                 'user_university_id'  => $univer //qowulmayib
 
@@ -121,11 +121,13 @@ class updateProfileController extends CI_Controller{
 //  sessionu yenilemek   start
             $_SESSION['user']->user_name =    $data['user_name'];
             $_SESSION['user']->user_surname = $data['user_surname'];
+
             $_SESSION['user']->user_adress =  $data['user_adress'];
             $_SESSION['user']->user_phone =   $data['user_phone'];
             $_SESSION['user']->user_email =   $data['user_email'];
             $_SESSION['user']->user_bdate =   $data['user_bdate'];
             $_SESSION['user']->user_university_id  = $data['user_university_id']; //qowulmayib
+
 //  sessionu yenilemek   end
 
 
