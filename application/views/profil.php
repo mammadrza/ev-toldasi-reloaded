@@ -148,7 +148,7 @@ $user = $_SESSION['user'];
 				</div>
 				<div class="col-md-12 agentTehsil" >
 					<h4 class="tehsil">Təhsil:</h4>
-					<p class="agentUni">Bakı Dövlət Universiteti</p>
+					<p class="agentUni"><?= $user->user_university_id ?></p>
 				</div>
 
 				<div class="col-md-12 AgentContact">

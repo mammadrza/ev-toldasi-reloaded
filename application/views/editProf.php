@@ -194,8 +194,27 @@
           <!-- <span class="text">tehsil</span> -->
 
           <div class="input-group araMesafesi">
-               <div class="input-group-addon"><span class="glyphicon glyphicon-education"></span></div>
-               <input class="form-control" id="univer" name="univer" type="univer" value="uni">
+
+               <div class="input-group-addon">
+               <span class="glyphicon glyphicon-education"></span>
+                </div>
+
+
+<!--               <input class="form-control" id="univer" name="univer" type="univer" value="uni">-->
+              <select name="univer" id="univer" class="form-control">
+
+
+                  <?php
+
+                  //                  print_r($city);
+                  foreach ($univerler as $key => $value){ ?>
+                      <option <?= ($user_data->user_university_id == $value->university_name) ? 'selected':''; ?>> <?= $value->university_name ?></option>
+                  <?php } ?>
+
+
+
+
+              </select>
 
           </div>
 
