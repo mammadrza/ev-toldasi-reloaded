@@ -7,6 +7,7 @@ class RegisterController extends CI_Controller{
         parent::__construct();
         $this->load->model('registerModel');
         $this->load->library('form_validation');
+        $this->load->library('upload');
 
         $config = array(
             array(
@@ -99,6 +100,14 @@ class RegisterController extends CI_Controller{
 //        print_r($university);
 //            print_r($city);
 
+
+            $dir = 'uploads/';
+            $config['upload_path'] = $dir;
+            $config['allowed_types'] = 'jpg|jpeg|png';
+            $this->upload->initialize($config);
+
+
+
         if(strlen($password) >= 6){
 
             if($bdate < strtotime('2017-04-24')){
@@ -107,21 +116,21 @@ class RegisterController extends CI_Controller{
 
                               if (!$this->registerModel->checkEmail($email)) {
 
-                                          $data = array(
+
+                                  if ($this->upload->do_upload('newsPhoto')){
+                                      $data = array(
                                               'user_name'    => $name,      //'user_name' db-deki columlarin adlaridir.
                                               'user_surname' => $surname,
                                               'user_pass'    => md5($password),
                                               'user_phone'   => $regoperator_numbers,
                                               'user_email'   => $email,
                                               'user_bdate'   => $bdate,
-                                              'user_gender'  => $gender, //qowulmayib
-                                              'user_adress'  => $city, //qowulmayib
-                                       'user_university_id'  => $university //qowulmayib
-
-                                          );
-
-
-
+                                              'user_gender'  => $gender,
+                                              'user_adress'  => $city,
+                                              'user_university_id'  => $university,
+                                              'user_photo' => $this->upload->data('file_name')
+                                     );
+                                    };
 
                                           $this->registerModel->insert($data);
                                           redirect(base_url('loginController'));

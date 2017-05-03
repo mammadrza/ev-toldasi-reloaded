@@ -116,7 +116,7 @@ $user = $_SESSION['user'];
 	<div class="row">
 		<div class="col-md-12">
 			<div class="col-md-4 profilImgDiv">
-				<img src="<?= base_url(); ?>uploads/8.jpg" class="profiImg">
+				<img src="<?= base_url(); ?>uploads/<?= $user->user_photo ?>" class="profiImg">
 			</div>
 
 
