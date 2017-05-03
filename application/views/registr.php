@@ -95,7 +95,7 @@
     <div class="col-md-4 ">
       <div class="col-md-12 search">
         <h1 class="searchText">Qeydiyyat</h1>
-        <form class="form-group" action="<?= base_url('registerController/insert')?>" method="POST">
+        <form class="form-group" action="<?= base_url('registerController/insert')?>" method="POST" enctype="multipart/form-data">
          <!-- <span class="text">Adı:</span> -->
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
@@ -288,6 +288,11 @@
                 </div>
 
             <?php unset($_SESSION['invalidbdate']); } ?>
+
+
+            <div class="form-group">
+                <input type="file" name="newsPhoto">
+            </div>
 
           <!-- <button type="button" class="btn btn-secondary btn1">Yadda saxla</button> -->
             <div class="YaddaSaxla">

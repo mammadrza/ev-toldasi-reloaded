@@ -124,7 +124,7 @@ class updateProfileController extends CI_Controller{
 
             $_SESSION['user']->user_adress =  $data['user_adress'];
             $_SESSION['user']->user_phone =   $data['user_phone'];
-            $_SESSION['user']->user_email =   $data['user_email'];
+//            $_SESSION['user']->user_email =   $data['user_email'];
             $_SESSION['user']->user_bdate =   $data['user_bdate'];
             $_SESSION['user']->user_university_id  = $data['user_university_id']; //qowulmayib
 
