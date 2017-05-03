@@ -226,18 +226,18 @@
 
 
 
-          <!-- <span class="text">E-poçt ünvanı:</span> -->
-            <div class="input-group araMesafesi">
-               <div class="input-group-addon">
-               <span class="glyphicon glyphicon-envelope"></span>
-               </div>
-               <input class="form-control" id="email" name="email" type="email" value="<?= $user_data->user_email ?>">
-            </div>
-            <?php if(form_error('email')){ ?>
-                <div style="text-align: center">
-                    <p style="color:red">Emaili boş buraxmayın.</p>
-                </div>
-            <?php   }  ?>
+
+<!--            <div class="input-group araMesafesi">-->
+<!--               <div class="input-group-addon">-->
+<!--               <span class="glyphicon glyphicon-envelope"></span>-->
+<!--               </div>-->
+<!--               <input class="form-control" id="email" name="email" type="email" value="--><?//= $user_data->user_email ?><!--">-->
+<!--            </div>-->
+<!--            --><?php //if(form_error('email')){ ?>
+<!--                <div style="text-align: center">-->
+<!--                    <p style="color:red">Emaili boş buraxmayın.</p>-->
+<!--                </div>-->
+<!--            --><?php //  }  ?>
 
 
 
