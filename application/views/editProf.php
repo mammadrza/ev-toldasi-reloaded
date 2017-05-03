@@ -200,7 +200,21 @@
                 </div>
 
 
-               <input class="form-control" id="univer" name="univer" type="univer" value="uni">
+<!--               <input class="form-control" id="univer" name="univer" type="univer" value="uni">-->
+              <select name="univer" id="univer" class="form-control">
+
+
+                  <?php
+
+                  //                  print_r($city);
+                  foreach ($univerler as $key => $value){ ?>
+                      <option <?= ($user_data->user_university_id == $value->university_name) ? 'selected':''; ?>> <?= $value->university_name ?></option>
+                  <?php } ?>
+
+
+
+
+              </select>
 
           </div>
 

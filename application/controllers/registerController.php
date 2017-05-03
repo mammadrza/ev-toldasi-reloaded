@@ -95,7 +95,7 @@ class RegisterController extends CI_Controller{
         $bdate               = $this->input->post('regBirthday');
         $gender              = $this->input->post('regGender');
         $city                = $this->input->post('regCity');
-//        $university          = $this->input->post('regUniversity');
+        $university          = $this->input->post('regUniversity');
 //        print_r($university);
 //            print_r($city);
 
@@ -116,7 +116,7 @@ class RegisterController extends CI_Controller{
                                               'user_bdate'   => $bdate,
                                               'user_gender'  => $gender, //qowulmayib
                                               'user_adress'  => $city, //qowulmayib
-//                                       'user_university_id'  => $university //qowulmayib
+                                       'user_university_id'  => $university //qowulmayib
 
                                           );
 
