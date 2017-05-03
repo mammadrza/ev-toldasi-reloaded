@@ -114,21 +114,29 @@ class updateProfileController extends CI_Controller{
 
             );
 //        $this->load->model('updateProfileModel');
-//sd
+
+
+
+
+
+
+
+
+
             $update = $this->updateProfileModel->updateQuery($data, $id);
 
 
-//  sessionu yenilemek   start
+                                                                    //  sessionu yenilemek   start
             $_SESSION['user']->user_name =    $data['user_name'];
             $_SESSION['user']->user_surname = $data['user_surname'];
 
             $_SESSION['user']->user_adress =  $data['user_adress'];
             $_SESSION['user']->user_phone =   $data['user_phone'];
-            $_SESSION['user']->user_email =   $data['user_email'];
+//            $_SESSION['user']->user_email =   $data['user_email'];
             $_SESSION['user']->user_bdate =   $data['user_bdate'];
             $_SESSION['user']->user_university_id  = $data['user_university_id']; //qowulmayib
 
-//  sessionu yenilemek   end
+                                                                    //  sessionu yenilemek   end
 
 
             if ($update) {
