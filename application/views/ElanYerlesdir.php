@@ -89,86 +89,78 @@
       <div class="col-md-12 search searchBotton">
         <h1 class="searchText">Elan əlavə et</h1>
 
-        <form>
+        <form method="post" enctype="multipart/form-data" action="<?= base_url('adsController/ads') ?>">
         <!-- Emlain novu -->
           <div class="col-md-12 form-group">
             <label class="sel1" for="sel1">Əmlakın növü:</label>
-            <select class="form-control" id="sel1">
-              <option>Seçin</option>
-              <option>Mənzil</option>
-              <option>Həyət evi</option>
-              <option>Villa</option>
+            <select class="form-control" id="sel1" name="hometype">
+                <option value> Siyahidan secin</option>
+                <?php foreach ($hometype_list as $hometype) { ?>
+                    <option value="<?= $hometype['id'] ?>"><?= $hometype['home_type_name'] ?></option>
+                <?php } ?>
             </select>
           </div>
 
 	<!-- Seher -->
           <div class="col-md-12 form-group">
             <label class="sel2" for="sel2">Şəhər:</label>
-            <select class="form-control" id="sel1">
-              <option>Seçin</option>
-              <option>Bakı</option>
-              <option>Sumqayıt</option>
-              <option>Gəncə</option>
+            <select class="form-control" id="city" name="citylist">
+                <option value> Siyahidan secin</option>
+                <?php foreach ($city_list as $city) { ?>
+                    <option value="<?= $city->id ?>"><?= $city->city_name ?></option>
+                <?php } ?>
             </select>
           </div>
 
           <!-- Rayon -->
            <div class="col-md-12 form-group">
             <label class="sel2" for="sel2">Rayon:</label>
-            <select class="form-control" id="sel1">
-              <option>Seçin</option>
-              <option>Nəsimi</option>
-              <option>Binəqədi</option>
-              <option>Nərimanov</option>
-            </select>
+               <select class="form-control" id="town" name="townlist" disabled='false'>
+                   <option value=""></option>
+               </select>
           </div>
 
           <!-- Metro -->
            <div class="col-md-12 form-group">
             <label class="sel2" for="sel2">Metro:</label>
-            <select class="form-control" id="sel1">
-              <option>Seçin</option>
-              <option>28 May</option>
-              <option>Gənclik</option>
-              <option>Nərimanov</option>
-            </select>
+               <select class="form-control" id="metro" name="metrolist" disabled=''>
+                   <option value=""></option>
+               </select>
           </div>
 
           <!-- qiymet -->
           <div class="col-md-12 form-group">
               <label class="sel3" for="inputdefault">Qiymət:</label>
-              <input class="form-control" id="inputdefault" type="number" placeholder="">        
+              <input class="form-control" id="inputdefault" name="price" type="number" placeholder="">
           </div>
 
 <!-- otaqsayi -->
            <div class="col-md-12 form-group">
             <label class="sel2" for="sel2">Otaq sayi:</label>
-            <select class="form-control" id="sel1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6+</option>
+            <select class="form-control" id="sel1" name="roomlist">
+                <option value> Siyahidan secin</option>
+                <?php foreach ($rooms_list as $rooms) { ?>
+                    <option value="<?= $rooms['id'] ?>"><?= $rooms['rooms_count'] ?></option>
+                <?php } ?>
             </select>
           </div>
 
           <!-- unvan -->
           <div class="col-md-12 form-group">
               <label class="sel3" for="inputdefault">Ünvan:</label>
-              <input class="form-control" id="inputdefault" type="text" placeholder="">        
+              <input class="form-control" id="inputdefault" name="adress" type="text" placeholder="">
           </div>
 
           <!-- elave melumat -->
           <div class="col-md-12 form-group">
               <label class="sel3" for="inputdefault">Əlavə məlumat:</label>
-              <textarea class="form-control textarea" rows="5" cols="15" id="comment"></textarea>    
+              <textarea class="form-control textarea" name="comment" rows="5" cols="15" id="comment"></textarea>
           </div>
 
                     <!-- Elaqeli sexs -->
           <div class="col-md-12 form-group">
               <label class="sel3" for="inputdefault">Əlaqəli şəxs:</label>
-              <input class="form-control" id="inputdefault" type="text" placeholder="">        
+              <input class="form-control" id="inputdefault" name="contact" type="text" placeholder="">
           </div>
 
 
@@ -190,7 +182,7 @@
             		</select>
             </div>
             <div class="col-md-9 nomrereqem">
-              <input class="form-control" id="inputdefault" type="number" placeholder="XXX XX XX">
+              <input class="form-control" id="inputdefault" name="phone" type="number" placeholder="XXX XX XX">
             </div>
           </div>
 
@@ -199,7 +191,7 @@
           <!-- Email -->
           <div class="col-md-12 form-group">
                 <label class="sel3" for="email">Email:</label>
-      			<input type="email" class="form-control" id="email" placeholder="E-poçt ünvanı">
+      			<input type="email" class="form-control" name="email" id="email" placeholder="E-poçt ünvanı">
      
           </div>
 
@@ -253,6 +245,44 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        $('#city').on('change', function () {
+            var city_id = $(this).val();
+            $('#town').empty();
+            $('#metro').empty();
+            $('#town').append("<option>Siyahidan secin</option>");
+            $('#metro').append("<option>Siyahidan secin</option>");
+            if (city_id == '8') {
+                $('#town').prop('disabled', false),
+                    $('#metro').prop('disabled', false);
+                $.ajax({
+                    url: '<?= base_url(); ?>adsController/get_metros',
+                    type: 'POST',
+                    data: {'city_id': city_id},
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#town').html(data.town);
+                        $('#metro').html(data.metro);
+                    },
+                    error: function () {
+                        alert('Error olmadi');
+                    }
+                });
+            }
+            else {
+                $('#town').prop('disabled', true);
+                $('#metro').prop('disabled', true);
+            }
+        });
+    });
+
+
+
+</script>
 
 
 
