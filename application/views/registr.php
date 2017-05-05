@@ -289,9 +289,10 @@
 
             <?php unset($_SESSION['invalidbdate']); } ?>
 
-
-            <div class="form-group">
-                <input type="file" name="newsPhoto">
+            <div class="form-control">
+                <div class="form-group">
+                    <input type="file" name="newsPhoto">
+                </div>
             </div>
 
           <!-- <button type="button" class="btn btn-secondary btn1">Yadda saxla</button> -->
