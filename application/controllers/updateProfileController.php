@@ -78,6 +78,7 @@ class updateProfileController extends CI_Controller{
 
 
     }
+
 //    private function getUserData($id){
 //        $this->load->model('updateProfileModel');
 //        $result = $this->updateProfileModel->getData($id);
