@@ -20,7 +20,7 @@ class SendMail extends CI_Controller{
         $config = array(
             "protocol"  => "smtp",
             "smtp_host" => "ssl://smtp.gmail.com",
-            "smtp_port" => "465",                                      //587
+            "smtp_port" => "465",                                      //587   // 25
             "smtp_user" => "evyoldasi@gmail.com",                      //usermail
             "smtp_pass" => "kablosuz123",         //userpass             kablosuz123
             "starttls"  => TRUE,

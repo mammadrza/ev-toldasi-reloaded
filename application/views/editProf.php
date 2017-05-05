@@ -89,7 +89,7 @@
         <h1 class="searchText">Redaktə et</h1>
 
 
-        <form class="form-group" method="POST" action="<?= base_url('updateProfileController/update'.'/'.$user_data->id)  ?>">
+        <form class="form-group" method="POST" action="<?= base_url('updateProfileController/update'.'/'.$user_data->id)  ?> " enctype="multipart/form-data">
          <!-- <span class="text">Adı:</span> -->
           <div class="input-group araMesafesi">
                <div class="input-group-addon">
@@ -274,6 +274,9 @@
                 </div>
             <?php   }  ?>
 
+            <div class="form-group">
+                <input type="file" name="newsPhoto">
+            </div>
 
           <!-- <button type="button" class="btn btn-secondary btn1">Yadda saxla</button> -->
             <div class="YaddaSaxla">

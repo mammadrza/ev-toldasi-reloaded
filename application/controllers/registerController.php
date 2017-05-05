@@ -115,22 +115,37 @@ class RegisterController extends CI_Controller{
                 if(strlen($regoperator_numbers)==13){
 
                               if (!$this->registerModel->checkEmail($email)) {
+                                    if($this->upload->do_upload('newsPhoto')){
+                                        $data = array(
+                                            'user_name'    => $name,      //'user_name' db-deki columlarin adlaridir.
+                                            'user_surname' => $surname,
+                                            'user_pass'    => md5($password),
+                                            'user_phone'   => $regoperator_numbers,
+                                            'user_email'   => $email,
+                                            'user_bdate'   => $bdate,
+                                            'user_gender'  => $gender,
+                                            'user_adress'  => $city,
+                                            'user_university_id'  => $university,
 
+                                            'user_photo' => $this->upload->data('file_name')
+                                        );
+                                    }else{
+                                        $data = array(
+                                            'user_name'    => $name,      //'user_name' db-deki columlarin adlaridir.
+                                            'user_surname' => $surname,
+                                            'user_pass'    => md5($password),
+                                            'user_phone'   => $regoperator_numbers,
+                                            'user_email'   => $email,
+                                            'user_bdate'   => $bdate,
+                                            'user_gender'  => $gender,
+                                            'user_adress'  => $city,
+                                            'user_university_id'  => $university,
+                                             'user_photo' => 'profile2.png'
 
-                                  if ($this->upload->do_upload('newsPhoto')){
-                                      $data = array(
-                                              'user_name'    => $name,      //'user_name' db-deki columlarin adlaridir.
-                                              'user_surname' => $surname,
-                                              'user_pass'    => md5($password),
-                                              'user_phone'   => $regoperator_numbers,
-                                              'user_email'   => $email,
-                                              'user_bdate'   => $bdate,
-                                              'user_gender'  => $gender,
-                                              'user_adress'  => $city,
-                                              'user_university_id'  => $university,
-                                              'user_photo' => $this->upload->data('file_name')
-                                     );
-                                    };
+                                        );
+                                    }
+
+                                  
 
                                           $this->registerModel->insert($data);
                                           redirect(base_url('loginController'));
